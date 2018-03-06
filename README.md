@@ -44,7 +44,7 @@ Request::input('name')   // return string | array
 Request::has('key');                           // return bool
 Request::has('key.sub');                       // return bool
 Request::has(['key1', 'key2.sub']);            // return bool
-```
+
 // 仅获取列表提供的数据
 Request::only(['key1', 'key2.sub', 'key3.sub2.sub3']);    // return array
 
@@ -53,3 +53,5 @@ Request::except(['key1', 'key2', 'key3']);                // return array
 
 // 过滤参数返回 - 未提供
 Request::filter('key', 'array|int|string')
+
+```
