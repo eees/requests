@@ -103,14 +103,14 @@ class Requests {
   }
 
   public function input ($name) {
-    return $this->_fetch($keys, $this->_data);
+    return $this->_fetch($keys, $this->_data)['value'];
   }
 
   protected function _fetch ($keys, $data) {
     $keys = explode('.', $keys);
     if (!$keys) return false;
     if (count($keys) == 1) {
-      if (isset($data[$keys[0]])) return $data[$keys[0]];
+      if (isset($data[$keys[0]])) return array('key' => $keys[0], 'value' => $data[$keys[0]]);
       return false;
     }
     foreach ($keys as $key) {
@@ -125,20 +125,23 @@ class Requests {
     return false;
   }
 
-  public function offsetExists ($name) {
-    
+  public function only (array $keys) {
+    $data = array();
+    foreach ($keys as $key) {
+      $fetch = $this->_fetch($key, $this->_data);
+      if (false !== $fetch) {
+        $data[$fetch['key']] = $fetch['value'];
+      }
+    }
+    return $data;
   }
 
-  public function offsetGet ($name) {
-  
-  }
-
-  public function offsetSet ($name, $value) {
-    
-  }
-
-  public function offsetUnset ($name) {
-  
+  public function except (array $keys) {
+    $data = $this->_data;
+    foreach ($keys as $key) {
+      if (isset($data[$key])) unset($data[$key]);
+    }
+    return $data;
   }
 
 }

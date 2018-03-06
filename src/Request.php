@@ -19,7 +19,7 @@ class Request implements ArrayAccess {
   static protected $_methodPoint = array(
     'request'     => 'Requests::getInstance',
     'server'      => 'Server::getInstance',
-    'files'       => 'Files@getInstance',
+    //'files'       => 'Files@getInstance',
     'header'      => 'Server@header',
     'all'         => 'Requests@all',
     'fullurl'     => 'Requests@fullurl',
@@ -34,7 +34,7 @@ class Request implements ArrayAccess {
     'has'        => 'Requests@has',
     'only'       => 'Requests@only',
     'except'     => 'Requests@except',
-    'filter'     => 'Filters@filter',
+    //'filter'     => 'Filters@filter',
 
     // files
   );
