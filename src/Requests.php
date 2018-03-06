@@ -103,7 +103,7 @@ class Requests {
   }
 
   public function input ($name) {
-    return $this->_fetch($keys, $this->_data)['value'];
+    return $this->_fetch($name, $this->_data)['value'];
   }
 
   protected function _fetch ($keys, $data) {
