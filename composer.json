@@ -1,0 +1,19 @@
+{
+    "name": "eees/requests",
+    "description": "a http request package",
+    "type": "package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kee",
+            "email": "chinboy2012@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload" : {
+      "psr-4" : {
+        "Eees\\Requests\\" : "src/"
+      }
+    }
+}
